@@ -26,17 +26,12 @@ function refreshSearch() {
 
   if (!q) return;
 
-  const filtered = allRecords.filter(r =>
-    (r.Titre || "").toLowerCase().includes(q) ||
-    (r.instruments || "").toLowerCase().includes(q)
- div.innerText = `${r.id}. ${safeValue(r.Titre)} (${safeValue(r.instruments)})`;
+const filtered = allRecords.filter(r => {
+  const titre = (r.Titre || "").toLowerCase();
+  const instr = extractInstruments(r.instruments).toLowerCase();
+  return titre.includes(q) || instr.includes(q);
+});
 
-  );
-  
-const filtered = allRecords.filter(r =>
-  safeValue(r.Titre).toLowerCase().includes(q) ||
-  safeValue(r.instruments).toLowerCase().includes(q)
-);
 
 
   filtered.forEach(r => {
@@ -63,6 +58,31 @@ function showDetails(record) {
 }
 
 // Ajout safe value pour la colonne formule instrument"
+function extractInstruments(value) {
+  if (!value) return "";
+
+  // Cas simple : déjà une string
+  if (typeof value === "string") return value;
+
+  // Cas 2 : un seul objet (lookup simple)
+  if (typeof value === "object" && !Array.isArray(value)) {
+    if (value.instruments) return value.instruments;
+    if (value.id2) return value.id2;
+    if (value.name) return value.name;
+    return "";
+  }
+
+  // Cas 3 : liste (RecordList)
+  if (Array.isArray(value)) {
+    return value
+      .map(v => extractInstruments(v))
+      .filter(v => v)
+      .join(", ");
+  }
+
+  return "";
+}
+
 
 function safeValue(v) {
   if (!v) return "";
