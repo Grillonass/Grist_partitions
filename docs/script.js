@@ -17,11 +17,11 @@ function extractInstruments(value) {
   // string simple
   if (typeof value === "string") return value;
 
-  // lookup simple
+  // lookup simple (objet)
   if (typeof value === "object" && !Array.isArray(value)) {
-    if (value.instruments) return value.instruments;
-    if (value.id2) return value.id2;
-    if (value.name) return value.name;
+    if ("instruments" in value) return value.instruments;
+    if ("id2" in value) return value.id2;
+    if ("name" in value) return value.name;
     return "";
   }
 
@@ -29,7 +29,7 @@ function extractInstruments(value) {
   if (Array.isArray(value)) {
     return value
       .map(v => extractInstruments(v))
-      .filter(v => v)
+      .filter(Boolean)
       .join(", ");
   }
 
@@ -79,7 +79,6 @@ document.getElementById("saveBtn").onclick = () => {
   const update = {
     id: currentRecordId,
     Titre: document.getElementById("titre").value,
-    instruments: document.getElementById("instrument").value,  // NOTE: logiquement on doit éditer la table de liaison, mais on verra ensuite
     site_id: parseInt(document.getElementById("site_id").value),
     compositeur_id: parseInt(document.getElementById("compositeur_id").value),
     discipline_id: parseInt(document.getElementById("discipline_id").value)
