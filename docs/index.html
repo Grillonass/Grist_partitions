@@ -1,55 +1,49 @@
-
-<!-- =====================================================
-     HTML PRINCIPAL DU WIDGET
-     ===================================================== -->
 <!DOCTYPE html>
 <html>
-     <head>
-       <meta charset="utf-8">
-       <title>Widget Externe Grist</title>
-       <script src="script.js" defer></script>
-       <link rel="stylesheet" href="style.css">
-     </head>
-     
+<head>
+  <meta charset="utf-8">
+  <title>Partothèque CMDT</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
 <body>
-<div class="main-container">
 
-  <!-- PANNEAU RECHERCHE -->
-  <div class="search-panel">
-    <div class="logo-title">Partothèque CMDT</div>
-    <div class="logo-subtitle">Gestion & Recherche</div>
-
-    <label class="search-label">Rechercher une partition</label>
-    <input type="text" id="searchInput" class="search-input"
-           placeholder="Titre, compositeur, instrument..."
-           onkeyup="handleSearch(event)">
+  <div class="header">
+    <h1>Partothèque CMDT</h1>
+    <p>Recherche • Consultation • Édition</p>
   </div>
 
-  <!-- SECTION RÉSULTATS -->
-  <div class="results-section">
-    <div id="resultsContainer" class="results-container"></div>
+  <!-- SEARCH BAR -->
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Rechercher une partition…">
   </div>
 
-</div>
+  <!-- RESULTS LIST -->
+  <div id="results" class="results"></div>
 
+  <!-- DETAILS / EDIT FORM -->
+  <div id="details" class="details hidden">
 
-<!-- ===========================
-     MODAL - DÉTAIL & ÉDITION
-     =========================== -->
-<div id="partitionModal" class="modal-bg">
-  <div class="modal-content">
+    <h2>Détails de la partition</h2>
 
-    <div class="modal-header">Partition</div>
+    <label>Titre</label>
+    <input id="titre" type="text">
 
-    <div id="modalFields"></div>
+    <label>Instrument</label>
+    <input id="instrument" type="text">
 
-    <div class="modal-actions">
-      <button class="btn btn-close" onclick="closeModal()">Fermer</button>
-      <button class="btn btn-delete" onclick="deletePartition()">Supprimer</button>
-      <button class="btn btn-save" onclick="savePartition()">Enregistrer</button>
-    </div>
+    <label>Site ID</label>
+    <input id="site_id" type="number">
+
+    <label>Compositeur ID</label>
+    <input id="compositeur_id" type="number">
+
+    <label>Discipline ID</label>
+    <input id="discipline_id" type="number">
+
+    <button id="saveBtn" class="btn">Enregistrer</button>
+
   </div>
-</div>
+
 </body>
 </html>
-
