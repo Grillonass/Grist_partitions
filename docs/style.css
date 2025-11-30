@@ -1,8 +1,9 @@
 /* ===========================================
-   TEMPLATE PREMIUM / ADMIN PANEL / CMDT
+   TEMPLATE PREMIUM / MEDIATHEQUE CMDT
+   Sidebar = filtres
+   Main = grille de résultats
    =========================================== */
 
-/* Reset minimal */
 * {
   margin: 0;
   padding: 0;
@@ -13,154 +14,139 @@ body {
   font-family: 'Inter', 'Marianne', Arial, sans-serif;
   background: #f5f7fa;
   color: #2f3d4a;
-  height: 100%;
-  display: flex;
 }
 
-/* -------------------------------------------
-   SIDEBAR (résultats)
-------------------------------------------- */
+/* LAYOUT GLOBAL */
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
 
+/* ===============================
+   SIDEBAR (Filtres)
+   =============================== */
 .sidebar {
-  width: 320px;
-  background: #ffffff;
-  border-right: 1px solid #e2e8f0;
-  padding: 20px;
+  width: 300px;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+  padding: 24px;
   overflow-y: auto;
 }
 
 .sidebar-title {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   color: #16b378;
 }
 
-/* Carte résultat (verticale) */
-.sidebar-item {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 14px;
-  margin-bottom: 14px;
-  cursor: pointer;
-  transition: 0.25s;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
+.filter-block {
+  margin-bottom: 20px;
 }
 
-.sidebar-item:hover {
-  border-color: #16b378;
-  box-shadow: 0 4px 14px rgba(22,179,120,0.15);
-  transform: translateY(-3px);
-}
-
-/* Icône partition */
-.item-icon {
-  font-size: 1.4rem;
-}
-
-/* Texte */
-.item-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.item-sub {
-  font-size: 0.8rem;
-  color: #6b7280;
-}
-
-/* Badge */
-.badge {
-  display: inline-block;
-  background: #e6f4ef;
-  color: #0f7650;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-size: 0.7rem;
+.filter-label {
+  display: block;
+  margin-bottom: 6px;
   font-weight: 600;
-  margin-top: 4px;
+  color: #44545c;
+  font-size: 0.88rem;
 }
 
-/* -------------------------------------------
-   ZONE PRINCIPALE
-------------------------------------------- */
+.filter-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fafafa;
+  font-size: 0.95rem;
+}
 
+.filter-input:focus {
+  border-color: #16b378;
+  background: white;
+}
+
+/* ===============================
+   MAIN PANEL
+   =============================== */
 .main {
   flex: 1;
-  padding: 30px;
   overflow-y: auto;
+  padding: 30px;
 }
 
 .section-card {
   background: white;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
-  padding: 24px;
-  margin-bottom: 24px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  padding: 22px;
+  margin-bottom: 26px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.04);
 }
 
 .section-title {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 10px;
-  color: #2f3d4a;
 }
 
-/* -------------------------------------------
-   GRID cartes partitions (panneau principal)
-------------------------------------------- */
+.section-sub {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 4px;
+}
 
+/* ===============================
+   GRID DE CARTES
+   =============================== */
 .results-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 22px;
 }
 
+/* CARTE */
 .result-card {
   background: white;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
-  padding: 18px;
-  cursor: pointer;
+  padding: 20px;
   transition: 0.25s;
+  cursor: pointer;
 }
 
 .result-card:hover {
   border-color: #16b378;
-  box-shadow: 0 4px 18px rgba(22,179,120,0.18);
+  box-shadow: 0 6px 20px rgba(22,179,120,0.18);
   transform: translateY(-3px);
 }
 
 .card-icon {
-  font-size: 1.4rem;
-  margin-bottom: 8px;
+  font-size: 1.6rem;
+  color: #16b378;
+  margin-bottom: 10px;
 }
 
 .card-title {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  color: #2f3d4a;
 }
 
 .card-line {
   font-size: 0.85rem;
   color: #6b7280;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
-/* Bouton dans carte */
-.card-btn {
-  display: inline-block;
-  margin-top: 10px;
-  background: #16b378;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 0.8rem;
+.card-badge {
+  background: #e6f4ef;
+  color: #0f7650;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
   font-weight: 600;
+  display: inline-block;
+  margin-top: 8px;
 }
