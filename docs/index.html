@@ -1,1 +1,49 @@
 
+<!-- =====================================================
+     HTML PRINCIPAL DU WIDGET
+     ===================================================== -->
+
+
+
+
+     
+<div class="main-container">
+
+  <!-- PANNEAU RECHERCHE -->
+  <div class="search-panel">
+    <div class="logo-title">Partothèque CMDT</div>
+    <div class="logo-subtitle">Gestion & Recherche</div>
+
+    <label class="search-label">Rechercher une partition</label>
+    <input type="text" id="searchInput" class="search-input"
+           placeholder="Titre, compositeur, instrument..."
+           onkeyup="handleSearch(event)">
+  </div>
+
+  <!-- SECTION RÉSULTATS -->
+  <div class="results-section">
+    <div id="resultsContainer" class="results-container"></div>
+  </div>
+
+</div>
+
+
+<!-- ===========================
+     MODAL - DÉTAIL & ÉDITION
+     =========================== -->
+<div id="partitionModal" class="modal-bg">
+  <div class="modal-content">
+
+    <div class="modal-header">Partition</div>
+
+    <div id="modalFields"></div>
+
+    <div class="modal-actions">
+      <button class="btn btn-close" onclick="closeModal()">Fermer</button>
+      <button class="btn btn-delete" onclick="deletePartition()">Supprimer</button>
+      <button class="btn btn-save" onclick="savePartition()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+
