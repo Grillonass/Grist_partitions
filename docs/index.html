@@ -1,69 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Partothèque CMDT</title>
-
-  <!-- OBLIGATOIRE : charge l'API GRIST -->
-  <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
-
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
+
 <body>
 
-  <div class="header">
-    <h1>Partothèque CMDT</h1>
-    <p>Recherche • Consultation • Édition</p>
+  <div class="app-container">
+
+    <!-- ============ SIDEBAR (FILTRES) ============ -->
+    <aside class="sidebar">
+      <h2 class="sidebar-title">Filtres</h2>
+
+      <div class="filter-block">
+        <label class="filter-label">Recherche</label>
+        <input id="search" class="filter-input" type="text" placeholder="Titre, instrument, compositeur...">
+      </div>
+
+      <div class="filter-block">
+        <label class="filter-label">Instrument</label>
+        <select id="filter-instrument" class="filter-input">
+          <option value="">Tous</option>
+        </select>
+      </div>
+
+      <div class="filter-block">
+        <label class="filter-label">Compositeur</label>
+        <select id="filter-compo" class="filter-input">
+          <option value="">Tous</option>
+        </select>
+      </div>
+
+      <div class="filter-block">
+        <label class="filter-label">Site</label>
+        <select id="filter-site" class="filter-input">
+          <option value="">Tous</option>
+        </select>
+      </div>
+
+    </aside>
+
+    <!-- ============ MAIN PANEL ============ -->
+    <main class="main">
+
+      <div class="section-card">
+        <h2 class="section-title">Résultats</h2>
+        <p class="section-sub">Les résultats apparaissent ici sous forme de cartes</p>
+      </div>
+
+      <div id="results" class="results-grid"></div>
+
+    </main>
+
   </div>
 
-<div class="app-container">
-
-  <!-- ============ SIDEBAR ============ -->
-  <aside class="sidebar">
-    <h2 class="sidebar-title">Filtres</h2>
-
-    <div class="filter-block">
-      <label class="filter-label">Recherche</label>
-      <input id="search" class="filter-input" type="text" placeholder="Titre, instrument, compositeur..." />
-    </div>
-
-    <div class="filter-block">
-      <label class="filter-label">Instrument</label>
-      <select id="filter-instrument" class="filter-input">
-        <option value="">Tous</option>
-      </select>
-    </div>
-
-    <div class="filter-block">
-      <label class="filter-label">Compositeur</label>
-      <select id="filter-compo" class="filter-input">
-        <option value="">Tous</option>
-      </select>
-    </div>
-
-    <div class="filter-block">
-      <label class="filter-label">Site</label>
-      <select id="filter-site" class="filter-input">
-        <option value="">Tous</option>
-      </select>
-    </div>
-  </aside>
-
-  <!-- ============ MAIN — GRID ============ -->
-  <main class="main">
-    <div class="section-card">
-      <h2 class="section-title">Résultats</h2>
-      <p class="section-sub">La recherche s'applique sur plusieurs champs</p>
-    </div>
-
-    <div id="results" class="results-grid">
-      <!-- Cartes JS ici -->
-    </div>
-  </main>
-
-</div>
-
-
+  <script src="script.js"></script>
 </body>
 </html>
