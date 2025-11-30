@@ -27,16 +27,24 @@ body {
 }
 
 .result-item {
-  padding: 10px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  background: #ffffff;            /* Fond blanc */
+  color: #333333;                 /* Texte gris foncé lisible */
+  border: 1px solid #d0d0d0;      /* Bord fin et propre */
+  border-radius: 6px;             /* Coins arrondis */
+  font-size: 15px;
+  line-height: 1.4;
   cursor: pointer;
-  background: #f2f2f2;
-  margin-bottom: 5px;
-  border-radius: 4px;
+  transition: all 0.15s ease;     /* Hover fluide */
 }
 
 .result-item:hover {
-  background: #e0e0e0;
+  background: #f5f5f5;            /* Gris clair au survol */
+  border-color: #b8b8b8;
+  transform: translateY(-1px);    /* Léger effet de soulèvement */
 }
+
 
 .details {
   border-top: 1px solid #ccc;
