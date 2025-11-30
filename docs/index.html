@@ -3,6 +3,10 @@
 <head>
   <meta charset="utf-8">
   <title>Partothèque CMDT</title>
+
+  <!-- OBLIGATOIRE : charge l'API GRIST -->
+  <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -13,15 +17,12 @@
     <p>Recherche • Consultation • Édition</p>
   </div>
 
-  <!-- SEARCH BAR -->
   <div class="search-box">
     <input type="text" id="search" placeholder="Rechercher une partition…">
   </div>
 
-  <!-- RESULTS LIST -->
   <div id="results" class="results"></div>
 
-  <!-- DETAILS / EDIT FORM -->
   <div id="details" class="details hidden">
 
     <h2>Détails de la partition</h2>
