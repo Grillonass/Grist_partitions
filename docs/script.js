@@ -98,22 +98,67 @@ dom.filterSite.addEventListener('change', renderResults);
 // ------------------------------
 // Rendu des cartes
 // ------------------------------
-function renderResults() {
-  const q = dom.search.value.trim().toLowerCase();
-  const fInstr = dom.filterInstrument.value;
-  const fCompo = dom.filterCompo.value;
-  const fSite = dom.filterSite.value;
+function renderResults(results) {
+  const container = document.getElementById("results");
+  container.innerHTML = "";
 
-  dom.results.innerHTML = '';
+  if (!results.length) {
+    container.innerHTML = "<p>Aucun résultat trouvé.</p>";
+    return;
+  }
 
-  const filtered = allRecords.filter(r => {
-    const titre = toText(r['Titre']);
-    const compo = toText(r['Compositeur']);
-    const instr = toText(r['instruments']);
-    const site = toText(r['site']);
-    const disc = toText(r['Disciplines']);
-    const notice = toText(r['notice']);
-    const cota = toText(r['cotation']);
+  const grid = document.createElement("div");
+  grid.className = "results-grid";
+
+  results.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "result-card";
+
+    // Icone instrument (simple mais efficace)
+    const icon = document.createElement("div");
+    icon.className = "card-icon";
+    icon.innerHTML = "🎵";
+
+    // Titre
+    const title = document.createElement("div");
+    title.className = "card-title";
+    title.textContent = item.Titre;
+
+    // Instrument
+    const instrument = document.createElement("div");
+    instrument.className = "card-line";
+    instrument.textContent = `${item.instruments}`;
+
+    // Compositeur
+    const compo = document.createElement("div");
+    compo.className = "card-line";
+    compo.textContent = item.Compositeur || "Compositeur inconnu";
+
+    // Site
+    const site = document.createElement("div");
+    site.className = "card-line";
+    site.textContent = `Site : ${item.site}`;
+
+    // Exemplaires
+    const badge = document.createElement("div");
+    badge.className = "badge";
+    badge.textContent = `${item.nb_exemplaire} exemplaires`;
+
+    // Ajout dans la carte
+    card.appendChild(icon);
+    card.appendChild(title);
+    card.appendChild(instrument);
+    card.appendChild(compo);
+    card.appendChild(site);
+    card.appendChild(badge);
+
+    // Ajout dans la grille
+    grid.appendChild(card);
+  });
+
+  container.appendChild(grid);
+}
+
 
     // Filtre texte global
     const haystack = (
