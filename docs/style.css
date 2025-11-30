@@ -1,8 +1,7 @@
-/* ===========================================
-   TEMPLATE PREMIUM / MEDIATHEQUE CMDT
-   Sidebar = filtres
-   Main = grille de résultats
-   =========================================== */
+/* ============================================================
+   TEMPLATE PREMIUM Partothèque CMDT
+   Version complète - Sidebar Filtres + Grid Résultats
+   ============================================================ */
 
 * {
   margin: 0;
@@ -10,22 +9,30 @@
   box-sizing: border-box;
 }
 
+:root {
+  color-scheme: light;
+}
+
 body {
   font-family: 'Inter', 'Marianne', Arial, sans-serif;
   background: #f5f7fa;
   color: #2f3d4a;
-}
-
-/* LAYOUT GLOBAL */
-.app-container {
-  display: flex;
   height: 100vh;
   overflow: hidden;
 }
 
-/* ===============================
+/* ======================================
+   LAYOUT
+   ====================================== */
+.app-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* ======================================
    SIDEBAR (Filtres)
-   =============================== */
+   ====================================== */
 .sidebar {
   width: 300px;
   background: white;
@@ -67,9 +74,9 @@ body {
   background: white;
 }
 
-/* ===============================
+/* ======================================
    MAIN PANEL
-   =============================== */
+   ====================================== */
 .main {
   flex: 1;
   overflow-y: auto;
@@ -96,16 +103,18 @@ body {
   margin-top: 4px;
 }
 
-/* ===============================
-   GRID DE CARTES
-   =============================== */
+/* ======================================
+   GRID Résultats
+   ====================================== */
 .results-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 22px;
 }
 
-/* CARTE */
+/* ======================================
+   CARTE PARTITION
+   ====================================== */
 .result-card {
   background: white;
   border: 1px solid #e5e7eb;
@@ -113,6 +122,8 @@ body {
   padding: 20px;
   transition: 0.25s;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .result-card:hover {
@@ -149,4 +160,15 @@ body {
   font-weight: 600;
   display: inline-block;
   margin-top: 8px;
+}
+
+/* Scrollbars propres */
+.sidebar::-webkit-scrollbar,
+.main::-webkit-scrollbar {
+  width: 8px;
+}
+.sidebar::-webkit-scrollbar-thumb,
+.main::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
 }
