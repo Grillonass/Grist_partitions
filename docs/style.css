@@ -172,3 +172,32 @@ body {
   background: #cbd5e1;
   border-radius: 4px;
 }
+/* ===================================================================
+   FIX UNIVERSAL INPUT — Compatible mode sombre GRIST + navigateurs
+   =================================================================== */
+
+input, select, textarea {
+  background-color: #ffffff !important;
+  color: #1b1b1b !important;
+  border: 2px solid #cfd5da !important;
+  border-radius: 8px !important;
+  padding: 10px 12px !important;
+  font-size: 0.95rem !important;
+  box-shadow: none !important;
+}
+
+/* Placeholder toujours lisible */
+input::placeholder, textarea::placeholder {
+  color: #666666 !important;
+  opacity: 1 !important;
+}
+
+/* Focus visible dans TOUS les thèmes */
+input:focus, select:focus, textarea:focus {
+  border-color: #16b378 !important;
+  background-color: #ffffff !important;
+  color: #1b1b1b !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(22,179,120,0.25) !important;
+}
+
