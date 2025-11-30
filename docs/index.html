@@ -17,34 +17,53 @@
     <p>Recherche • Consultation • Édition</p>
   </div>
 
-  <div class="search-box">
-    <input type="text" id="search" placeholder="Rechercher une partition…">
-  </div>
+<div class="app-container">
 
-  <div id="results" class="results"></div>
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <h2 class="sidebar-title">Filtres</h2>
 
-  <div id="details" class="details hidden">
+    <div class="filter-block">
+      <label class="filter-label">Recherche</label>
+      <input id="search" class="filter-input" type="text" placeholder="Titre, instrument, compositeur..." />
+    </div>
 
-    <h2>Détails de la partition</h2>
+    <div class="filter-block">
+      <label class="filter-label">Instrument</label>
+      <select id="filter-instrument" class="filter-input">
+        <option value="">Tous</option>
+      </select>
+    </div>
 
-    <label>Titre</label>
-    <input id="titre" type="text">
+    <div class="filter-block">
+      <label class="filter-label">Compositeur</label>
+      <select id="filter-compo" class="filter-input">
+        <option value="">Tous</option>
+      </select>
+    </div>
 
-    <label>Instrument</label>
-    <input id="instrument" type="text">
+    <div class="filter-block">
+      <label class="filter-label">Site</label>
+      <select id="filter-site" class="filter-input">
+        <option value="">Tous</option>
+      </select>
+    </div>
+  </aside>
 
-    <label>Site ID</label>
-    <input id="site_id" type="number">
+  <!-- ============ MAIN — GRID ============ -->
+  <main class="main">
+    <div class="section-card">
+      <h2 class="section-title">Résultats</h2>
+      <p class="section-sub">La recherche s'applique sur plusieurs champs</p>
+    </div>
 
-    <label>Compositeur ID</label>
-    <input id="compositeur_id" type="number">
+    <div id="results" class="results-grid">
+      <!-- Cartes JS ici -->
+    </div>
+  </main>
 
-    <label>Discipline ID</label>
-    <input id="discipline_id" type="number">
+</div>
 
-    <button id="saveBtn" class="btn">Enregistrer</button>
-
-  </div>
 
 </body>
 </html>
