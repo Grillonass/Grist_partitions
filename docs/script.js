@@ -123,3 +123,5 @@ document.getElementById("saveBtn").onclick = () => {
     .then(() => alert("Modifications enregistrées !"))
     .catch(err => alert("Erreur : " + err));
 };
+div.innerText = `${r.id}. ${safeValue(r.Titre)}  —  ${extractInstruments(r.instruments)}`;
+
